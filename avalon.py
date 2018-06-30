@@ -145,12 +145,13 @@ def _install(root=None):
     else:
         try:
             root = os.environ["AVALON_PROJECTS"]
+            print(root)
         except KeyError:
             root = os.path.join(os.environ["AVALON_EXAMPLES"], "projects")
             os.environ["AVALON_PROJECTS"] = root
 
     try:
-        config = os.environ["AVALON_CONFIG"]
+        config = os.environ["AVALON_LABEL"]
     except KeyError:
         config = "polly"
         os.environ["AVALON_CONFIG"] = config
@@ -237,8 +238,7 @@ def main():
     parser.add_argument("--update", action="store_true",
                         help="Update Avalon Setup to the latest version")
     parser.add_argument("--init", action="store_true",
-                        help="Establish a new project in the "
-                             "current working directory")
+                        help="Establish a new project in the current working directory")
     parser.add_argument("--load", action="store_true",
                         help="Load project at the current working directory")
     parser.add_argument("--save", action="store_true",
@@ -250,7 +250,7 @@ def main():
                              "or supplied --root")
 
     kwargs, args = parser.parse_known_args()
-
+    print(kwargs)
     _install(root=kwargs.root)
 
     cd = os.path.dirname(os.path.abspath(__file__))
@@ -273,6 +273,7 @@ def main():
             [sys.executable, "-u", fname] + args)
 
     elif kwargs.init:
+        print(kwargs.init)
         returncode = forward([
             sys.executable, "-u", "-m",
             "avalon.inventory", "--init"])
