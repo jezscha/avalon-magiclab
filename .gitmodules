@@ -16,3 +16,6 @@
 [submodule "git/mindbender-config"]
 	path = git/mindbender-config
 	url = https://github.com/mindbender-studio/config.git
+[submodule "git/avalon-magiclab-config"]
+	path = git/avalon-magiclab-config
+	url = git@git.magiclab.cz:pipeline/avalon-magiclab-config.git
