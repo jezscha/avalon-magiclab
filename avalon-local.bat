@@ -1,12 +1,13 @@
 @echo off
-
-set AVALON_CORE=G:\CODE\github\pipeline\avalon-magiclab\git\avalon-core
-set AVALON_LAUNCHER=G:\CODE\github\pipeline\avalon-magiclab\git\avalon-launcher
-set AVALON_PROJECTS=G:\CODE\github\pipeline\avalon-magiclab\git\avalon-examples
+set AVALON_ROOT_PATH=%~dp0
+set AVALON_CORE=%AVALON_ROOT_PATH%git\avalon-core
+set AVALON_LAUNCHER=%AVALON_ROOT_PATH%git\avalon-launcher
+set AVALON_PROJECTS=%AVALON_ROOT_PATH%git\avalon-examples
 set AVALON_CONFIG=polly
 set AVALON_LABEL=polly
 set AVALON_MONGO=mongodb://localhost:27017
 set AVALON_DEBUG=True
-set PYTHONPATH=G:\CODE\github\pipeline\avalon-magiclab\git\mindbender-config;%PYTHONPATH%
+set PYTHONPATH=%AVALON_ROOT_PATH%git\mindbender-config;%PYTHONPATH%
 
-python G:\CODE\github\pipeline\avalon-magiclab\avalon.py %*
+python -c "import sys; print(sys.executable)"
+python %AVALON_ROOT_PATH%avalon.py %*
